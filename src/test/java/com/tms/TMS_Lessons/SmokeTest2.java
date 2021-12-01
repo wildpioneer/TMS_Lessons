@@ -9,7 +9,6 @@ import org.testng.annotations.Test;
 public class SmokeTest2 {
 
     private String driverPath = "/Users/aleksandr.trostyanko/Documents/Work/TechMeSkills/practice/TestSelenium/src/driver/chromedriver";
-    //private String URL = "https://www.3crkp.by/информация/полезно-знать/медицинские-калькуляторы/расчет-скф";
     private String URL = "http://13gp.by/informatsiya/meditsinskie-kalkulyatory/995-raschet-skorosti-klubochkovoj-filtratsii-skf";
 
     @Test
