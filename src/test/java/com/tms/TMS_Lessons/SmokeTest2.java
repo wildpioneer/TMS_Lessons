@@ -67,6 +67,7 @@ public class SmokeTest2 {
             System.out.printf("The value in the field 'ХБП' is %s and not equal to %s.",
                     actualMDRD1, expectedMDRD1);
         }
+        //ввв
         if (!actualCG.equals(expectedCG)) {
             System.out.printf("The value in the field 'Cockroft-Gault' is %s and not equal to %s.",
                     actualCG, expectedCG);
