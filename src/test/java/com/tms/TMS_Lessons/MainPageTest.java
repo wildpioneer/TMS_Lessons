@@ -14,7 +14,6 @@ import java.util.concurrent.TimeUnit;
 
 public class MainPageTest {
     private WebDriver driver;
-    private MainPage mainPage;
 
     @BeforeMethod
     public void setUp() {
@@ -23,7 +22,7 @@ public class MainPageTest {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("https://www.jetbrains.com/");
 
-        mainPage = new MainPage(driver);
+        MainPage mainPage = new MainPage(driver);
     }
 
     @AfterMethod
@@ -33,34 +32,6 @@ public class MainPageTest {
 
     @Test
     public void search() {
-        mainPage.searchButton.click();
 
-        WebElement searchField = driver.findElement(By.id("header-search"));
-        searchField.sendKeys("Selenium");
-
-        WebElement submitButton = driver.findElement(By.xpath("//button[@type='submit' and text()='Search']"));
-        submitButton.click();
-
-        WebElement searchPageField = driver.findElement(By.className("js-search-input"));
-        assertEquals(searchPageField.getAttribute("value"), "Selenium");
-    }
-
-    @Test
-    public void toolsMenu() {
-        new Actions(driver)
-                .moveToElement(mainPage.toolsMenu)
-                .perform();
-
-        WebElement menuPopup = driver.findElement(By.className("menu-main__popup-wrapper"));
-        assertTrue(menuPopup.isDisplayed());
-    }
-
-    @Test
-    public void navigationToAllTools() {
-        mainPage.seeAllToolsButton.click();
-
-        WebElement productsList = driver.findElement(By.className("products-list"));
-        assertTrue(productsList.isDisplayed());
-        assertEquals(driver.getTitle(), "All Developer Tools and Products by JetBrains");
     }
 }
