@@ -1,6 +1,7 @@
 package pages;
 
 import baseEntity.BasePage;
+import models.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -38,5 +39,11 @@ public class LoginPage extends BasePage {
 
     public WebElement getLoginButton() {
         return driver.findElement(loginSelector);
+    }
+
+    public void login(User user) {
+        getEmailField().sendKeys(user.getEmail());
+        getPasswordField().sendKeys(user.getPassword());
+        getLoginButton().click();
     }
 }
