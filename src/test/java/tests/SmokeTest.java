@@ -2,7 +2,6 @@ package tests;
 
 import baseEntity.BaseTest;
 import core.ReadProperties;
-import enums.ProjectType;
 import models.Project;
 import models.User;
 import org.testng.Assert;
