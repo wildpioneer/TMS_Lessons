@@ -8,6 +8,7 @@ public class Project {
     private boolean isShowAnnouncement;
     private ProjectType typeOfProject;
     private boolean isCompleted;
+    private User user;
 
     public Project() {
     }
