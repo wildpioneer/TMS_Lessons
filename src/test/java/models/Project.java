@@ -8,7 +8,7 @@ public class Project {
     private String name;
     private String announcement;
     private boolean isShowAnnouncement;
-    private ProjectType typeOfProject;
+    private int typeOfProject;
     private boolean isCompleted;
     private User user;
 
@@ -39,11 +39,11 @@ public class Project {
         isShowAnnouncement = showAnnouncement;
     }
 
-    public ProjectType getTypeOfProject() {
+    public int getTypeOfProject() {
         return typeOfProject;
     }
 
-    public void setTypeOfProject(ProjectType typeOfProject) {
+    public void setTypeOfProject(int typeOfProject) {
         this.typeOfProject = typeOfProject;
     }
 

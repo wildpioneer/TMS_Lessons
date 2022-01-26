@@ -36,7 +36,7 @@ public class TestRailApiTest1 extends BaseApiTest {
                 .name("WP_Project_01")
                 .announcement("This is the description for the project")
                 .isShowAnnouncement(true)
-                .typeOfProject(ProjectType.SINGLE.getProjectType())
+                .typeOfProject(ProjectType.SINGLE_SUITE_MODE)
                 .build();
 
         given()
@@ -62,7 +62,7 @@ public class TestRailApiTest1 extends BaseApiTest {
 
         ProjectBuilder project = ProjectBuilder.builder()
                 .name("WP_Project_02")
-                .typeOfProject(ProjectType.SINGLE.getProjectType())
+                .typeOfProject(ProjectType.SINGLE_SUITE_MODE)
                 .build();
 
         Map<String, Object> jsonAsMap = new HashMap<>();
@@ -84,7 +84,7 @@ public class TestRailApiTest1 extends BaseApiTest {
 
         ProjectBuilder project = ProjectBuilder.builder()
                 .name("WP_Project_03")
-                .typeOfProject(ProjectType.SINGLE_WITH_BASELINE.getProjectType())
+                .typeOfProject(ProjectType.SINGLE_SUITE_BASELINES)
                 .build();
 
         given()
@@ -102,7 +102,7 @@ public class TestRailApiTest1 extends BaseApiTest {
 
         ProjectBuilder project = ProjectBuilder.builder()
                 .name("WP_Project_04")
-                .typeOfProject(ProjectType.SINGLE_WITH_BASELINE.getProjectType())
+                .typeOfProject(ProjectType.SINGLE_SUITE_BASELINES)
                 .build();
 
         projectID = given()

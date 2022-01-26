@@ -1,6 +1,7 @@
 package models;
 
 import com.google.gson.annotations.SerializedName;
+import enums.ProjectType;
 import lombok.Builder;
 import lombok.Data;
 
