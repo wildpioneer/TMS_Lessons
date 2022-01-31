@@ -2,11 +2,7 @@ package baseEntity;
 
 import core.BrowsersService;
 import core.ReadProperties;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import io.github.bonigarcia.wdm.config.DriverManagerType;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
@@ -15,11 +11,9 @@ import steps.ProjectSteps;
 import utils.Listener;
 import utils.Waits;
 
-import java.util.concurrent.TimeUnit;
-
 @Listeners(Listener.class)
 public class BaseTest {
-    protected WebDriver driver;
+    public WebDriver driver;
     protected BrowsersService browsersService;
     protected Waits waits;
 
