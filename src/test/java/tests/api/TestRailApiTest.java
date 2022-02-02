@@ -1,7 +1,6 @@
 package tests.api;
 
 import baseEntity.BaseApiTest;
-import com.sun.xml.internal.ws.policy.EffectiveAlternativeSelector;
 import core.ReadProperties;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;

@@ -6,14 +6,12 @@ import models.Project;
 import models.User;
 import org.testng.annotations.Test;
 import pages.LoginPage;
-import steps.MilestoneSteps;
-import steps.ProjectSteps;
 
 public class MilestoneTests extends BaseTest {
 
     @Test
     public void test1() {
-        Project project = new Project();
+        Project project = Project.builder().build();
         User user = User.builder().build();
         Milestone milestone = new Milestone();
 
@@ -22,7 +20,5 @@ public class MilestoneTests extends BaseTest {
 
         projectSteps.addProject(project);
         milestoneSteps.createMilestone(project, milestone);
-
-
     }
 }

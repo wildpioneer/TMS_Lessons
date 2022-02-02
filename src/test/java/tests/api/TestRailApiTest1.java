@@ -4,7 +4,7 @@ import baseEntity.BaseApiTest;
 import enums.ProjectType;
 import io.restassured.mapper.ObjectMapperType;
 import io.restassured.response.Response;
-import models.ProjectBuilder;
+import models.Project;
 import org.apache.http.HttpStatus;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -32,7 +32,7 @@ public class TestRailApiTest1 extends BaseApiTest {
     public void addProject1() {
         String endpoint = "/index.php?/api/v2/add_project";
 
-        ProjectBuilder project = ProjectBuilder.builder()
+        Project project = Project.builder()
                 .name("WP_Project_01")
                 .announcement("This is the description for the project")
                 .isShowAnnouncement(true)
@@ -41,11 +41,11 @@ public class TestRailApiTest1 extends BaseApiTest {
 
         given()
                 .body(String.format("{\n" +
-                        "  \"name\": \"%s\",\n" +
-                        "  \"announcement\": \"%s\",\n" +
-                        "  \"show_announcement\": %b,\n" +
-                        "  \"suite_mode\" : %d\n" +
-                        "}",
+                                "  \"name\": \"%s\",\n" +
+                                "  \"announcement\": \"%s\",\n" +
+                                "  \"show_announcement\": %b,\n" +
+                                "  \"suite_mode\" : %d\n" +
+                                "}",
                         project.getName(),
                         project.getAnnouncement(),
                         project.isShowAnnouncement(),
@@ -60,7 +60,7 @@ public class TestRailApiTest1 extends BaseApiTest {
     public void addProject2() {
         String endpoint = "/index.php?/api/v2/add_project";
 
-        ProjectBuilder project = ProjectBuilder.builder()
+        Project project = Project.builder()
                 .name("WP_Project_02")
                 .typeOfProject(ProjectType.SINGLE_SUITE_MODE)
                 .build();
@@ -82,7 +82,7 @@ public class TestRailApiTest1 extends BaseApiTest {
     public void addProject3() {
         String endpoint = "/index.php?/api/v2/add_project";
 
-        ProjectBuilder project = ProjectBuilder.builder()
+        Project project = Project.builder()
                 .name("WP_Project_03")
                 .typeOfProject(ProjectType.SINGLE_SUITE_BASELINES)
                 .build();
@@ -100,7 +100,7 @@ public class TestRailApiTest1 extends BaseApiTest {
     public void addProject4() {
         String endpoint = "/index.php?/api/v2/add_project";
 
-        ProjectBuilder project = ProjectBuilder.builder()
+        Project project = Project.builder()
                 .name("WP_Project_04")
                 .typeOfProject(ProjectType.SINGLE_SUITE_BASELINES)
                 .build();
@@ -122,7 +122,7 @@ public class TestRailApiTest1 extends BaseApiTest {
     public void updateProject() {
         String endpoint = "/index.php?/api/v2/update_project/{project_id}";
 
-        ProjectBuilder projectUpd = ProjectBuilder.builder()
+        Project projectUpd = Project.builder()
                 .name("WP_Project_04_UPD")
                 .announcement("Test!!!")
                 .isCompleted(true)

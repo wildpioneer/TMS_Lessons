@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 public class AllureTest {
 
-    @Test (description = "Human-readable test name")
+    @Test(description = "Human-readable test name")
     public void testName() {
         Assert.assertTrue(true);
     }
