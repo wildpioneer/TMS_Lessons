@@ -2,13 +2,10 @@ package tests.gui;
 
 import baseEntity.BaseTest;
 import core.ReadProperties;
-import models.Project;
 import models.User;
 import org.testng.annotations.Test;
 
 public class LombokTest extends BaseTest {
-    Project addProject;
-    Project updateProject;
 
     @Test
     public void loginTest() {
