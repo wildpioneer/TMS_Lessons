@@ -1,4 +1,5 @@
 {
-  "name": "Test1",
+  "name": "Test3",
+  "dependency": "string",
   "value" : 123
 }
