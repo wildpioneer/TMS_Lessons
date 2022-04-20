@@ -38,5 +38,9 @@ public class CssSelectorTest {
         // Find webElement by class name
         Assert.assertEquals(driver.findElement(By.cssSelector(".intro")).getTagName(), "div");
         Assert.assertEquals(driver.findElement(By.cssSelector("#Lastname")).getTagName(), "span");
+        Assert.assertEquals(driver.findElements(By.cssSelector(".intro, #Lastname")).size(), 2);
+        Assert.assertTrue(driver.findElement(By.cssSelector("h1")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.cssSelector("h1, p")).isDisplayed()); // Все элемента h1 и p
+        Assert.assertTrue(driver.findElement(By.cssSelector("div p")).isDisplayed()); // Все элемента h1 и p
     }
 }
