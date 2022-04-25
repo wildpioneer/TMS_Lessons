@@ -43,4 +43,6 @@ public class CssSelectorTest {
         Assert.assertTrue(driver.findElement(By.cssSelector("h1, p")).isDisplayed()); // Все элемента h1 и p
         Assert.assertTrue(driver.findElement(By.cssSelector("div p")).isDisplayed()); // Все элемента h1 и p
     }
+
+    // ToDo:
 }
