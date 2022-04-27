@@ -1,5 +1,6 @@
 package baseEntity;
 
+import core.ReadProperties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -14,11 +15,11 @@ public abstract class BasePage {
 
     protected abstract By getPageIdentifier();
 
+    protected void navigateByUrl(String path) {
+        driver.get(ReadProperties.getURL() + path);
+    }
+
     public boolean isPageOpened() {
-        try {
-            return driver.findElement(getPageIdentifier()).isDisplayed();
-        } catch (NoSuchElementException noSuchElementException) {
-            return false;
-        }
+        return driver.findElement(getPageIdentifier()).isDisplayed();
     }
 }

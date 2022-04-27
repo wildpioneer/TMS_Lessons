@@ -19,6 +19,11 @@ public class DashboardPage extends BasePage {
         return PAGE_OPENED_IDENTIFIER;
     }
 
+    @Override
+    protected void navigateByUrl(String path) {
+        super.navigateByUrl(path);
+    }
+
     public WebElement getAddProjectButton() {
         return driver.findElement(addProjectButtonSelector);
     }
