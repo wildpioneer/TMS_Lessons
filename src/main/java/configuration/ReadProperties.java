@@ -1,4 +1,4 @@
-package core;
+package configuration;
 
 import java.io.IOException;
 import java.util.Properties;
@@ -23,7 +23,9 @@ public class ReadProperties {
         return properties.getProperty("browser");
     }
 
-    public static String getUsername() { return properties.getProperty("username"); }
+    public static String getUsername() {
+        return properties.getProperty("username");
+    }
 
     public static String getPassword() {
         return properties.getProperty("password");

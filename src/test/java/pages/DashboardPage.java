@@ -1,31 +1,35 @@
 package pages;
 
-import baseEntity.BasePage;
+import baseEntities.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class DashboardPage extends BasePage {
-    protected static By PAGE_OPENED_IDENTIFIER = By.id("activityChart");
+    private final static String pagePath = "/index.php?/dashboard";
 
-    protected By addProjectButtonSelector = By.id("sidebar-projects-add");
+    public TopMenuPage topMenuPage;
+
+    // Блок описания селекторов для элементов
+    private final By headerTitleLabelLocator = By.xpath("//div[contains(@class, 'content-header-title') and contains(text(), 'All Projects')]");
 
     public DashboardPage(WebDriver driver) {
         super(driver);
+
+        topMenuPage = new TopMenuPage(driver);
     }
 
     @Override
     protected By getPageIdentifier() {
-        return PAGE_OPENED_IDENTIFIER;
+        return headerTitleLabelLocator;
     }
 
-    @Override
-    protected void navigateByUrl(String path) {
-        super.navigateByUrl(path);
+    public void openPageByUrl() {
+        super.openPageByUrl(pagePath);
     }
 
-    public WebElement getAddProjectButton() {
-        return driver.findElement(addProjectButtonSelector);
+    // Блок атомарных методов
+    public WebElement getHeaderTitleLabel() {
+        return driver.findElement(headerTitleLabelLocator);
     }
-
 }

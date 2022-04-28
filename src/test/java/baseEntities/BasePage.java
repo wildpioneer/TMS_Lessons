@@ -1,10 +1,8 @@
-package baseEntity;
+package baseEntities;
 
-import core.ReadProperties;
+import configuration.ReadProperties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
-import java.util.NoSuchElementException;
 
 public abstract class BasePage {
     protected WebDriver driver;
@@ -15,11 +13,11 @@ public abstract class BasePage {
 
     protected abstract By getPageIdentifier();
 
-    protected void navigateByUrl(String path) {
-        driver.get(ReadProperties.getURL() + path);
-    }
-
     public boolean isPageOpened() {
         return driver.findElement(getPageIdentifier()).isDisplayed();
+    }
+
+    public void openPageByUrl(String pagePath) {
+        driver.get(ReadProperties.getURL() + pagePath);
     }
 }

@@ -1,12 +1,13 @@
 package steps;
 
-import baseEntity.BaseStep;
+import baseEntities.BaseStep;
 import org.openqa.selenium.WebDriver;
 import pages.DashboardPage;
 import pages.LoginPage;
 
-public class LoginSteps extends BaseStep {
-    public LoginSteps(WebDriver driver) {
+public class LoginStep extends BaseStep {
+
+    public LoginStep(WebDriver driver) {
         super(driver);
     }
 
@@ -23,8 +24,13 @@ public class LoginSteps extends BaseStep {
     }
 
     private void login(String email, String psw) {
-        loginPage.getEmailField().sendKeys(email);
-        loginPage.getPasswordField().sendKeys(email);
-        loginPage.getLoginButton().click();
+        loginPage.getEmailInput().sendKeys(email);
+        loginPage.getPswInput().sendKeys(psw);
+        loginPage.getLogInButton().click();
+    }
+
+    public LoginPage logout() {
+
+        return loginPage;
     }
 }

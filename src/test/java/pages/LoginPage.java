@@ -1,33 +1,37 @@
 package pages;
 
-import baseEntity.BasePage;
+import baseEntities.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class LoginPage extends BasePage {
-    protected static By PAGE_OPENED_IDENTIFIER = By.id("button_primary");
+    // Блок описания селекторов для элементов
+    private final By emailInputLocator = By.id("name");
+    private final By pswInputLocator = By.id("password");
+    private final By logInButtonLocator = By.id("button_primary");
+    private final By errorTextLocator = By.className("error-text");
 
-    private By emailSelector = By.id("name");
-    private By passwordSelector = By.id("password");
-    private By loginSelector = By.id("button_primary");
-
+    // Блок иницализации
     public LoginPage(WebDriver driver) {
         super(driver);
     }
 
     @Override
-    protected By getPageIdentifier() { return PAGE_OPENED_IDENTIFIER; }
-
-    public WebElement getEmailField() {
-        return driver.findElement(emailSelector);
+    protected By getPageIdentifier() {
+        return emailInputLocator;
     }
 
-    public WebElement getPasswordField() {
-        return driver.findElement(passwordSelector);
+    // Блок атомарных методов
+    public WebElement getEmailInput() {
+        return driver.findElement(emailInputLocator);
     }
-
-    public WebElement getLoginButton() {
-        return driver.findElement(loginSelector);
+    public WebElement getPswInput() {
+        return driver.findElement(pswInputLocator);
+    }
+    public WebElement getLogInButton() {
+        return driver.findElement(logInButtonLocator);
+    }
+    public WebElement getErrorTextElement() { return driver.findElement(errorTextLocator);
     }
 }
