@@ -1,20 +1,21 @@
-import org.testng.Assert;
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class DependencyTest {
 
     @Test
     public void stepb() {System.out.println("stepb...");}
 
-    @Test (dependsOnMethods = "stepb")
+    @Test
     public void stepa() {
         System.out.println("stepa...");
-        Assert.assertTrue(false);
+        assertTrue(false);
     }
 
-    @Test (dependsOnMethods = "stepa", alwaysRun = true)
+    @Test
     public void stepd() {System.out.println("stepd...");}
 
-    @Test (dependsOnMethods = {"stepd", "stepa"})
+    @Test
     public void stepc() {System.out.println("stepc...");}
 }

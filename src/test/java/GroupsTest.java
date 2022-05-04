@@ -1,17 +1,17 @@
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
 
 public class GroupsTest {
-    @Test (groups = "smoke")
+    @Test
     public void stepb() {System.out.println("stepb...");}
 
-    @Test (groups = "regression")
+    @Test
     public void stepa() {
         System.out.println("stepa...");
     }
 
-    @Test (groups = "regression")
+    @Test
     public void stepd() {System.out.println("stepd...");}
 
-    @Test (groups = {"smoke", "regression"})
+    @Test
     public void stepc() {System.out.println("stepc...");}
 }

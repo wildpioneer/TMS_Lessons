@@ -1,48 +1,48 @@
-import data.StaticProvider;
-import org.testng.Assert;
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CalcTest extends BaseTest {
 
     @Test
     public void testSum() {
-        Assert.assertEquals(calculator.sum(2, 3), 5, "Неверная сумма...");
+        assertEquals(calculator.sum(2, 3), 5, "Неверная сумма...");
     }
 
-    @Test(enabled = false)
+    @Test
     public void testSum1() {
-        Assert.assertEquals(calculator.sum(2, 3), 5, "Неверная сумма...");
+        assertEquals(calculator.sum(2, 3), 5, "Неверная сумма...");
     }
 
-    @Test(description = "Тест с описанием")
+    @Test
     public void testSum2() {
-        Assert.assertEquals(calculator.sum(2, 3), 5, "Неверная сумма...");
+        assertEquals(calculator.sum(2, 3), 5, "Неверная сумма...");
     }
 
-    @Test(testName = "Test with name")
+    @Test
     public void testSum3() {
-        Assert.assertEquals(calculator.sum(2, 3), 5, "Неверная сумма...");
+        assertEquals(calculator.sum(2, 3), 5, "Неверная сумма...");
     }
 
-    @Test(timeOut = 1000)
+    @Test
     public void waitLongTimeTest() throws InterruptedException {
         Thread.sleep(1000);
     }
 
-    @Test (invocationCount = 3, invocationTimeOut = 1000, threadPoolSize = 3)
+    @Test
     public void invocationCountTest() throws InterruptedException {
         Thread.sleep(500);
-        Assert.assertEquals(calculator.sum(2, 3), 5, "Неверная сумма...");
+        assertEquals(calculator.sum(2, 3), 5, "Неверная сумма...");
     }
 
-    @Test (dataProvider = "dataForSum", dataProviderClass = StaticProvider.class, threadPoolSize = 3)
+    @Test
     public void testDataProvider(int a, int b, int expectedResult) {
-        Assert.assertEquals(calculator.sum(a, b), expectedResult, "Неверная сумма...");
+        assertEquals(calculator.sum(a, b), expectedResult, "Неверная сумма...");
     }
 
-    @Test (expectedExceptions = NullPointerException.class)
+    @Test
     public void testExceptions() {
         List list = null;
         int size = list.size();

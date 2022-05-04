@@ -1,9 +1,8 @@
 package data;
 
-import org.testng.annotations.DataProvider;
-
 public class StaticProvider {
 
+/*
     @DataProvider (name = "dataForSum")
     public static Object[][] dataForSumTest() {
         return new Object[][] {
@@ -12,4 +11,5 @@ public class StaticProvider {
                 {2, 3, 5}
         };
     }
+*/
 }

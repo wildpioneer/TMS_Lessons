@@ -1,17 +1,11 @@
-import org.testng.Assert;
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.RepeatedTest;
 
 public class RetryTest extends BaseTest {
     private int attempt = 1;
 
-    @Test (retryAnalyzer = Retry.class)
+    @RepeatedTest(10)
     public void flakyTest() {
-        if (attempt == 6) {
-            Assert.assertTrue(true);
-        } else {
-            attempt++;
             System.out.println("Attempt is: " + attempt);
-            throw new NullPointerException();
-        }
+            attempt++;
     }
 }

@@ -1,36 +1,20 @@
-import org.testng.annotations.*;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 
-@Listeners(Listener.class)
 public class BaseTest {
     protected Calculator calculator = new Calculator();
 
-    @BeforeSuite
-    public void beforeSuite() { System.out.println("BeforeSuite: ...");}
+    @BeforeAll
+    public void beforeAll() { System.out.println("BeforeAll: ...");}
 
-    @BeforeTest
-    public void beforeTest() { System.out.println("BeforeTest: ...");}
+    @BeforeEach
+    public void beforeEach() { System.out.println("BeforeMethod: ...");}
 
-    @BeforeClass
-    public void beforeClass() { System.out.println("BeforeClass: ...");}
+    @AfterAll
+    public void afterAll() { System.out.println("AfterAll: ...");}
 
-    @BeforeMethod
-    public void beforeMethod() { System.out.println("BeforeMethod: ...");}
-
-    @BeforeGroups
-    public void beforeGroups() { System.out.println("BeforeGroups: ...");}
-
-    @AfterSuite
-    public void afterSuite() { System.out.println("AfterSuite: ...");}
-
-    @AfterTest
-    public void afterTest() { System.out.println("AfterTest: ...");}
-
-    @AfterClass
-    public void afterClass() { System.out.println("AfterClass: ...");}
-
-    @AfterMethod
-    public void afterMethod() { System.out.println("AfterMethod: ...");}
-
-    @AfterGroups
-    public void afterGroups() { System.out.println("AfterGroups: ...");}
+    @AfterEach
+    public void afterEach() { System.out.println("AfterEach: ...");}
 }

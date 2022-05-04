@@ -1,19 +1,19 @@
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
 
 public class PriorityTest {
 
-    @Test (priority = 1)
+    @Test
     public void stepb() {System.out.println("stepb...");}
 
-    @Test (priority = 2)
+    @Test
     public void stepa2() {System.out.println("stepa2...");}
 
-    @Test (priority = 3)
+    @Test
     public void stepa11() {System.out.println("stepa11...");}
 
-    @Test (priority = 4)
+    @Test
     public void stepd() {System.out.println("stepd...");}
 
-    @Test (priority = 5)
+    @Test
     public void stepc() {System.out.println("stepc...");}
 }
