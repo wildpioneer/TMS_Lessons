@@ -1,49 +1,41 @@
 package pages;
 
-import baseEntity.BasePage;
-import models.User;
+import baseEntities.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class LoginPage extends BasePage {
-    private static String ENDPOINT = "/auth/login";
+    // Блок описания селекторов для элементов
+    private By emailInputLocator = By.id("name");
+    private By pswInputLocator = By.id("password");
+    private By logInButtonLocator = By.id("button_primary");
+    private By errorTextLocator = By.className("error-text");
 
-    private static final By PAGE_OPENED_IDENTIFIER = By.id("button_primary");
-
-    protected By emailSelector = By.id("name");
-    protected By passwordSelector = By.id("password");
-    protected By loginSelector = By.id("button_primary");
-
+    // Блок иницализации
     public LoginPage(WebDriver driver) {
         super(driver);
     }
 
     @Override
-    protected void openPage() {
-        driver.get(BASE_URL + ENDPOINT);
+    protected By getPageIdentifier() {
+        return emailInputLocator;
     }
 
-    @Override
-    protected boolean isPageOpened() {
-        return waits.waitForVisibility(PAGE_OPENED_IDENTIFIER).isDisplayed();
+    // Блок атомарных методов
+    public WebElement getEmailInput() {
+        return waitsService.waitForExists(emailInputLocator);
     }
 
-    public WebElement getEmailField() {
-        return driver.findElement(emailSelector);
+    public WebElement getPswInput() {
+        return waitsService.waitForExists(pswInputLocator);
     }
 
-    public WebElement getPasswordField() {
-        return driver.findElement(passwordSelector);
+    public WebElement getLogInButton() {
+        return waitsService.waitForExists(logInButtonLocator);
     }
 
-    public WebElement getLoginButton() {
-        return driver.findElement(loginSelector);
-    }
-
-    public void login(User user) {
-        getEmailField().sendKeys(user.getEmail());
-        getPasswordField().sendKeys(user.getPassword());
-        getLoginButton().click();
+    public WebElement getErrorTextElement() {
+        return waitsService.waitForExists(errorTextLocator);
     }
 }
