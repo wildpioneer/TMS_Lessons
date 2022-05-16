@@ -12,7 +12,6 @@ public class JSTests extends BaseTest {
     @Test
     public void jsTest() throws InterruptedException {
         driver.get("http://the-internet.herokuapp.com/jqueryui/menu#");
-
         WebElement webElement = driver.findElement(By.id("ui-id-2"));
         JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
         javascriptExecutor.executeScript("arguments[0].click();", webElement);
