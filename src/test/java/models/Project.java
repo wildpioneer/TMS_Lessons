@@ -24,4 +24,6 @@ public class Project implements Serializable {
                 ", type=" + type +
                 '}';
     }
+
+
 }

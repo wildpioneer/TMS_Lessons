@@ -13,6 +13,7 @@ public class BaseTest {
     protected LoginStep loginStep;
     protected NavigationStep navigationStep;
 
+
     @BeforeMethod
     public void setup() {
         driver = new BrowsersService().getDriver();
