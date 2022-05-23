@@ -1,6 +1,7 @@
 package steps;
 
 import baseEntities.BaseStep;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import pages.DashboardPage;
 import pages.LoginPage;
@@ -11,12 +12,14 @@ public class LoginStep extends BaseStep {
         super(driver);
     }
 
+    @Step
     public DashboardPage successLogin(String email, String psw) {
         login(email, psw);
 
         return dashboardPage;
     }
 
+    @Step
     public LoginPage incorrectLogin(String email, String psw) {
         login(email, psw);
 
@@ -29,8 +32,8 @@ public class LoginStep extends BaseStep {
         loginPage.getLogInButton().click();
     }
 
+    @Step
     public LoginPage logout() {
-
         return loginPage;
     }
 }
