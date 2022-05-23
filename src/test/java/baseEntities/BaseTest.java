@@ -9,7 +9,7 @@ import steps.LoginStep;
 import steps.NavigationStep;
 
 public class BaseTest {
-    protected WebDriver driver;
+    public WebDriver driver;
     protected LoginStep loginStep;
     protected NavigationStep navigationStep;
 
