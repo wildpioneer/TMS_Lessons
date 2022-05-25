@@ -19,7 +19,6 @@ public class AlertTests extends BaseTest {
         Assert.assertEquals(alert.getText(), "I am a JS Alert");
 
         alert.accept();
-
     }
 
     @Test
@@ -33,8 +32,7 @@ public class AlertTests extends BaseTest {
         Assert.assertEquals(alert.getText(), "I am a JS Confirm");
 
         alert.dismiss();
-
-        Thread.sleep(3000);
+        Assert.assertTrue(false);
     }
 
     @Test
@@ -49,7 +47,5 @@ public class AlertTests extends BaseTest {
 
         alert.sendKeys("Everything is OK!");
         alert.accept();
-
-        Thread.sleep(5000);
     }
 }
