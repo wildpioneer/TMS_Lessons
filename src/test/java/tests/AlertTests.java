@@ -1,10 +1,17 @@
 package tests;
 
 import baseEntities.BaseTest;
+import io.qameta.allure.Allure;
+import io.qameta.allure.Attachment;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.io.ByteArrayInputStream;
+import java.util.UUID;
 
 public class AlertTests extends BaseTest {
 
@@ -32,6 +39,8 @@ public class AlertTests extends BaseTest {
         Assert.assertEquals(alert.getText(), "I am a JS Confirm");
 
         alert.dismiss();
+        //Allure.addAttachment(UUID.randomUUID().toString(), new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
+
         Assert.assertTrue(false);
     }
 

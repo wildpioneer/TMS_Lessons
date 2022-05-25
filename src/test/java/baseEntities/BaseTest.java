@@ -18,9 +18,9 @@ public class BaseTest {
     protected NavigationStep navigationStep;
 
     @BeforeMethod
-    public void setup(ITestContext context) {
+    public void setup(ITestContext iTestContext) {
         driver = new BrowsersService().getDriver();
-        context.setAttribute("driver", driver);
+        this.setDriverToContext(iTestContext, driver);
 
         loginStep = new LoginStep(driver);
         navigationStep = new NavigationStep(driver);
@@ -31,5 +31,13 @@ public class BaseTest {
     @AfterMethod
     public void tearDown() {
         driver.quit();
+    }
+
+    public static void setDriverToContext(ITestContext iTestContext, WebDriver driver){
+        iTestContext.setAttribute("WebDriver", driver);
+    }
+
+    public static WebDriver getDriverFromContext(ITestContext iTestContext){
+        return (WebDriver) iTestContext.getAttribute("WebDriver") ;
     }
 }
