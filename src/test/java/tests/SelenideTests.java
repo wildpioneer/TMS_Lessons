@@ -1,10 +1,14 @@
 package tests;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 import tests.pages.LoginPage;
@@ -20,12 +24,13 @@ import static com.codeborne.selenide.Selenide.*;
 
 //@Listeners({ SoftAsserts.class})
 public class SelenideTests {
-    static String url = "https://qa1505.testrail.io";
-    String username = "atrostyanko+0401@gmail.com";
-    String password = "QqtRK9elseEfAk6ilYcJ";
+    static String url = "https://aqa1803.testrail.io/";
+    String username = "atrostyanko@gmail.com";
+    String password = "Americana#1";
+    static Logger logger = Logger.getLogger(SelenideTests.class);
 
     @BeforeSuite
-    static void setupAllureReports() {
+    public void setupAllureReports() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
 
         // or for fine-tuning:
@@ -47,10 +52,33 @@ public class SelenideTests {
         //Configuration.headless = false;
     }
 
+    @BeforeMethod
+    public void setup() {
+        // Настройка slf4j
+        org.apache.log4j.BasicConfigurator.configure();
+        //static Logger logger = Logger.getLogger(FirstTest.class);
+
+        // Настройка Selenide
+        Configuration.baseUrl = url;
+        Configuration.browser = "chrome";
+        Configuration.startMaximized = false;
+        Configuration.fastSetValue = true;
+        Configuration.timeout = 8000;
+        //Configuration.assertionMode = SOFT;
+        //Configuration.headless = false;
+    }
+
+    @AfterMethod
+    public void tearDown() {
+        logger.info("Close the browser");
+        closeWebDriver();
+    }
+
 
     @Test
     public void userCanLogin() {
         // Настройка slf4j
+/*
         org.apache.log4j.BasicConfigurator.configure();
 
         // Настройка Selenide
@@ -59,6 +87,7 @@ public class SelenideTests {
         Configuration.startMaximized = false;
         Configuration.fastSetValue = true;
         Configuration.timeout = 8000;
+*/
         //Configuration.assertionMode = SOFT;
         //Configuration.headless = false;
 
@@ -73,8 +102,8 @@ public class SelenideTests {
 
         open("/index.php?/admin/projects/overview");
         $$(By.className("hoverSensitive"))
-                .shouldHaveSize(388)
-                .find(text("123456"))
+                .shouldHaveSize(26)
+                .find(text("erg"))
                 .find(By.tagName("a"))
                 .click();
 
@@ -99,8 +128,8 @@ public class SelenideTests {
 
         open("/index.php?/admin/projects/overview");
         $$(By.className("hoverSensitive"))
-                .shouldHaveSize(388)
-                .find(text("123456"))
+                .shouldHaveSize(26)
+                .find(text("erg"))
                 .find(By.tagName("a"))
                 .click();
 
@@ -137,12 +166,14 @@ public class SelenideTests {
                 .filter(visible)
                 .shouldHave(
                         texts(
-                                "123456",
-                                "aaaDencheck",
-                                "aaaDencheck",
-                                "aaaDencheck"
+                                "MilestoneProject",
+                                "asdasdasdfaszc",
+                                "dfghj",
+                                "erg"
                         )
                 );
+
+        Condition clickable = and("can be clicked", visible, enabled);
     }
 
     @Test
@@ -167,23 +198,23 @@ public class SelenideTests {
         $("#password").val(password);
         $("#button_primary").click();
 
-        $(byText("ahlhtdqk")).shouldBe(visible);
-        $(withText("123")).shouldBe(visible);
+        $(byText("asdasdasdfaszc")).shouldBe(visible);
+        $(withText("dfghj")).shouldBe(visible);
 
-        SelenideElement parent = $(byText("ahlhtdqk")).parent();
+        SelenideElement parent = $(byText("asdasdasdfaszc")).parent();
         System.out.println(parent.getTagName());
 
-        $(byText("ahlhtdqk")).innerText();
-        $(byText("ahlhtdqk")).innerHtml();
-        $(byText("ahlhtdqk")).scrollTo();
-        $(byText("ahlhtdqk")).closest("tr");
-        $(byText("ahlhtdqk")).find(By.xpath(""));
-        $(byText("ahlhtdqk")).doubleClick();
-        $(byText("ahlhtdqk")).contextClick();
-        $(byText("ahlhtdqk")).hover();
+        $(byText("asdasdasdfaszc")).innerText();
+        $(byText("asdasdasdfaszc")).innerHtml();
+        $(byText("asdasdasdfaszc")).scrollTo();
+        $(byText("asdasdasdfaszc")).closest("tr");
+        $(byText("asdasdasdfaszc")).find(By.xpath(""));
+        $(byText("asdasdasdfaszc")).doubleClick();
+        $(byText("asdasdasdfaszc")).contextClick();
+        $(byText("asdasdasdfaszc")).hover();
 
-        $(byText("ahlhtdqk")).uploadFile(new File(""));
-        $(byText("ahlhtdqk")).download();
+        //$(byText("asdasdasdfaszc")).uploadFile(new File(""));
+        //$(byText("asdasdasdfaszc")).download();
 
         sleep(3000);
     }
