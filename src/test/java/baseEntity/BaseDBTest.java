@@ -16,8 +16,6 @@ public class BaseDBTest {
 
     @BeforeTest
     public void setupConnection() {
-        //org.apache.log4j.BasicConfigurator.configure();
-
         dataBaseService = new DataBaseService();
     }
 
