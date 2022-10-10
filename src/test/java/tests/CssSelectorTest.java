@@ -53,7 +53,7 @@ public class CssSelectorTest {
         // Поиск всех элементов с тэгом p которые идут сразу за элементом с тэго ul
         Assert.assertEquals(1, driver.findElements(By.cssSelector("ul + p")).size());
 
-        // Поиск всех элементов с тэгом вшм которые являются братьями элементу с тэгом p
+        // Поиск всех элементов с тэгом div которые являются братьями элементу с тэгом p
         Assert.assertEquals(2, driver.findElements(By.cssSelector("p ~ div")).size());
 
         // Поиск всех элементов у которых присутствует аттрибут title
