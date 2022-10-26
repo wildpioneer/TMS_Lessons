@@ -19,7 +19,7 @@ public class SmokeTest extends BaseTest {
         loginPage.loginButton.click();
 
         DashboardPage dashboardPage = new DashboardPage(driver);
-        driver.get("https://qa1504.testrail.io/index.php?/admin/overview");
+        driver.get(ReadProperties.getUrl() + "/admin/overview");
 
         dashboardPage = new DashboardPage(driver, true);
         Assert.assertTrue(dashboardPage.getAddProjectButton().isDisplayed());
@@ -34,7 +34,7 @@ public class SmokeTest extends BaseTest {
         loginPage.loginButton.click();
 
         DashboardPage dashboardPage = new DashboardPage(driver);
-        driver.get("https://qa1504.testrail.io/index.php?/admin/overview");
+        driver.get(ReadProperties.getUrl() + "/admin/overview");
 
         dashboardPage = new DashboardPage(driver, true);
         Assert.assertTrue(dashboardPage.getAddProjectButton().isDisplayed());

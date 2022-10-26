@@ -7,9 +7,7 @@ import io.github.bonigarcia.wdm.config.DriverManagerType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Listeners;
+import org.testng.annotations.*;
 import utils.Listener;
 import utils.Waits;
 
@@ -21,7 +19,7 @@ public class BaseTest {
     protected BrowsersService browsersService;
     protected Waits waits;
 
-    @BeforeClass
+    @BeforeMethod
     public void setUp() {
         browsersService = new BrowsersService();
         driver = browsersService.getDriver();
@@ -30,7 +28,7 @@ public class BaseTest {
         driver.get(ReadProperties.getUrl());
     }
 
-    @AfterClass
+    @AfterMethod
     public void closePage() {
         driver.quit();
     }
