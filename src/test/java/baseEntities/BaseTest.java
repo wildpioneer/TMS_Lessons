@@ -9,9 +9,11 @@ import org.testng.annotations.Listeners;
 import services.BrowsersService;
 import steps.LoginStep;
 import steps.NavigationStep;
+import utils.InvokedListener;
 import utils.Listener;
 
-@Listeners(Listener.class)
+//@Listeners(Listener.class)
+@Listeners(InvokedListener.class)
 public class BaseTest {
     public WebDriver driver;
     protected LoginStep loginStep;
