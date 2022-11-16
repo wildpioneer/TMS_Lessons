@@ -7,18 +7,20 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 public final class Waits {
     private WebDriver driver;
     private WebDriverWait wait;
 
     public Waits(WebDriver driver) {
         this.driver = driver;
-        wait = new WebDriverWait(driver, ReadProperties.getTimeOut());
+        wait = new WebDriverWait(driver, Duration.ofSeconds(ReadProperties.getTimeOut()));
     }
 
     public Waits(WebDriver driver, int timeOut) {
         this.driver = driver;
-        wait = new WebDriverWait(driver, timeOut);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(timeOut));
     }
 
     public boolean waitForVisibility(WebElement element) {

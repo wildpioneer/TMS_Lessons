@@ -1,8 +1,11 @@
 package tests.api;
 
 import baseEntity.BaseApiTest;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import models.User;
 import org.apache.http.HttpStatus;
@@ -23,8 +26,8 @@ public class TestRailApiTest2 extends BaseApiTest {
     @Test
     public void getAllUsers() {
         User user = User.builder()
-                .name("Alex Tros")
-                .email("atrostyanko+0401@gmail.com")
+                .name("Aleksandr Trostyanko")
+                .email("atrostyanko+aqa21@gmail.com")
                 .isActive(true)
                 .roleId(1)
                 .role("Lead")
@@ -45,8 +48,8 @@ public class TestRailApiTest2 extends BaseApiTest {
         int userID = 1;
 
         User expectedUser = User.builder()
-                .name("Alex Tros")
-                .email("atrostyanko+0401@gmail.com")
+                .name("Aleksandr Trostyanko")
+                .email("atrostyanko+aqa21@gmail.com")
                 .isActive(true)
                 .roleId(1)
                 .role("Lead")
@@ -61,7 +64,10 @@ public class TestRailApiTest2 extends BaseApiTest {
                 .extract()
                 .as(User.class);
 
-        Assert.assertEquals(actualUser, expectedUser);
+        System.out.println(actualUser.toString());
+        System.out.println(expectedUser.toString());
+
+        Assert.assertTrue(actualUser.equals(expectedUser));
     }
 
     @Test
@@ -70,8 +76,8 @@ public class TestRailApiTest2 extends BaseApiTest {
         Gson gson = new Gson();
 
         User expectedUser = User.builder()
-                .name("Alex Tros")
-                .email("atrostyanko+0401@gmail.com")
+                .name("Aleksandr Trostyanko")
+                .email("atrostyanko+aqa21@gmail.com")
                 .isActive(true)
                 .roleId(1)
                 .role("Lead")
@@ -91,8 +97,8 @@ public class TestRailApiTest2 extends BaseApiTest {
         Gson gson = new Gson();
 
         User expectedUser = User.builder()
-                .name("Alex Tros")
-                .email("atrostyanko+0401@gmail.com")
+                .name("Aleksandr Trostyanko")
+                .email("atrostyanko+aqa21@gmail.com")
                 .isActive(true)
                 .roleId(1)
                 .role("Lead")
@@ -111,8 +117,8 @@ public class TestRailApiTest2 extends BaseApiTest {
         Gson gson = new Gson();
 
         User expectedUser = User.builder()
-                .name("Alex Tros")
-                .email("atrostyanko+0401@gmail.com")
+                .name("Aleksandr Trostyanko")
+                .email("atrostyanko+aqa21@gmail.com")
                 .isActive(true)
                 .roleId(1)
                 .role("Lead")
