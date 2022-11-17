@@ -7,8 +7,11 @@ public class BaseAdapter {
     Gson gson;
 
     public BaseAdapter() {
+        gson = new Gson();
+/*
         gson = new GsonBuilder()
                 .excludeFieldsWithoutExposeAnnotation()
                 .create();
+*/
     }
 }

@@ -1,11 +1,8 @@
 package tests.api;
 
 import baseEntity.BaseApiTest;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import models.User;
 import org.apache.http.HttpStatus;
@@ -127,7 +124,8 @@ public class TestRailApiTest2 extends BaseApiTest {
         Response response = given()
                 .get(Endpoints.GET_ALL_USERS);
 
-        Type listType = new TypeToken<ArrayList<User>>() {}.getType();
+        Type listType = new TypeToken<ArrayList<User>>() {
+        }.getType();
         List<User> actualUsersList = gson.fromJson(response.getBody().asString(), listType);
 
 /*

@@ -41,11 +41,11 @@ public class TestRailApiTest1 extends BaseApiTest {
 
         given()
                 .body(String.format("{\n" +
-                        "  \"name\": \"%s\",\n" +
-                        "  \"announcement\": \"%s\",\n" +
-                        "  \"show_announcement\": %b,\n" +
-                        "  \"suite_mode\" : %d\n" +
-                        "}",
+                                "  \"name\": \"%s\",\n" +
+                                "  \"announcement\": \"%s\",\n" +
+                                "  \"show_announcement\": %b,\n" +
+                                "  \"suite_mode\" : %d\n" +
+                                "}",
                         project.getName(),
                         project.getAnnouncement(),
                         project.isShowAnnouncement(),

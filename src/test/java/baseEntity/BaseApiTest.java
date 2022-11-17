@@ -1,5 +1,6 @@
 package baseEntity;
 
+import adapters.ProjectAdapter;
 import core.ReadProperties;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -12,6 +13,7 @@ import javax.naming.spi.ResolveResult;
 import static io.restassured.RestAssured.given;
 
 public class BaseApiTest {
+    protected ProjectAdapter projectAdapter = new ProjectAdapter();
 
     @BeforeTest
     public void setupApiTest() {
