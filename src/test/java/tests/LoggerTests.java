@@ -5,15 +5,25 @@ import org.apache.logging.log4j.Logger;
 import org.testng.annotations.Test;
 
 public class LoggerTests {
-    private static final Logger logger = LogManager.getLogger(LoggerTests.class);
+    Logger logger = LogManager.getLogger(LoggerTests.class);
+    Logger fileLogger = LogManager.getLogger("File");
 
     @Test
     public void logTest() {
         logger.trace("Trace Message: Начало теста...");
         logger.debug("Debug Message: ...");
         logger.info("Info Message: ...");
+        logger.warn("Warning Message: ...");
         logger.error("Error Message: ...");
         logger.fatal("Fatal Message: ...");
+/*
+        fileLogger.trace("Trace Message: Начало теста...");
+        fileLogger.debug("Debug Message: ...");
+        fileLogger.info("Info Message: ...");
+        fileLogger.warn("Warning Message: ...");
+        fileLogger.error("Error Message: ...");
+        fileLogger.fatal("Fatal Message: ...");
+*/
     }
 
     @Test
@@ -27,7 +37,7 @@ public class LoggerTests {
         if (b == 0) {
             logger.fatal("Делитель равен нулю...");
         }
-        int c = a / b;
+        // int c = a / b;
 
         logger.trace("login test is finished...");
     }
