@@ -25,7 +25,7 @@ public class CssSelectors {
         By searchLikeContainsSelector = By.cssSelector("form[action*='admin']"); //Поиск с вхождением подстроки в значении аттрибута
         By searchByWordSelector = By.cssSelector("div[class~='column']"); //Поиск с вхождением слова в значении аттрибута
 
-        By valueStartsFromSelector = By.cssSelector("a[href^='https://']"); //Поиск эл  емента с аттрибутом значение которого начинается с
+        By valueStartsFromSelector = By.cssSelector("a[href^='https://']"); //Поиск элемента с аттрибутом значение которого начинается с
 
         By valueEndsWithSelector = By.cssSelector("a[href$='@gmail.com']"); //Поиск элемента с аттрибутом значение которого аканчивается на
 

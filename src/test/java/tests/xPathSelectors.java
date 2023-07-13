@@ -131,6 +131,9 @@ public class xPathSelectors {
         // Использование child - все дочерние элементы с тэго a от div
         Assert.assertTrue(driver.findElement(By.xpath("//div/child::a")).isDisplayed());
 
+        // Использование child - все дочерние элементы с тэго a от div
+        Assert.assertTrue(driver.findElement(By.xpath("//div/descendant::a")).isDisplayed());
+
         //Использование following - Выбирает всё в документе после закрытия тэга текущего узла
         Assert.assertTrue(driver.findElement(By.xpath("//*[@class='dialog-title']/following::form")).isDisplayed());
 
