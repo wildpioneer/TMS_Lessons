@@ -21,7 +21,7 @@ public class BrowsersService {
                 WebDriverManager.chromedriver().driverVersion("114.0.5735.90").setup();
 
                 ChromeOptions chromeOptions = new ChromeOptions();
-                chromeOptions.setHeadless(ReadProperties.isHeadless());
+                //chromeOptions.setHeadless(ReadProperties.isHeadless());
                 chromeOptions.addArguments("--disable-gpu");
                 //chromeOptions.addArguments("--window-size=1920,1200");
                 chromeOptions.addArguments("--ignore-certificate-errors");
