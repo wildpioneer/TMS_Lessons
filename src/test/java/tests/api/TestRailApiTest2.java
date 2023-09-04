@@ -23,8 +23,8 @@ public class TestRailApiTest2 extends BaseApiTest {
     @Test
     public void getAllUsers() {
         User user = User.builder()
-                .name("Aleksandr Trostyanko")
-                .email("atrostyanko+aqa21@gmail.com")
+                .name("Alex Trostyanko")
+                .email("atrostyanko@gmail.com")
                 .isActive(true)
                 .roleId(1)
                 .role("Lead")
@@ -45,8 +45,8 @@ public class TestRailApiTest2 extends BaseApiTest {
         int userID = 1;
 
         User expectedUser = User.builder()
-                .name("Aleksandr Trostyanko")
-                .email("atrostyanko+aqa21@gmail.com")
+                .name("Alex Trostyanko")
+                .email("atrostyanko@gmail.com")
                 .isActive(true)
                 .roleId(1)
                 .role("Lead")
@@ -73,8 +73,8 @@ public class TestRailApiTest2 extends BaseApiTest {
         Gson gson = new Gson();
 
         User expectedUser = User.builder()
-                .name("Aleksandr Trostyanko")
-                .email("atrostyanko+aqa21@gmail.com")
+                .name("Alex Trostyanko")
+                .email("atrostyanko@gmail.com")
                 .isActive(true)
                 .roleId(1)
                 .role("Lead")
@@ -94,8 +94,8 @@ public class TestRailApiTest2 extends BaseApiTest {
         Gson gson = new Gson();
 
         User expectedUser = User.builder()
-                .name("Aleksandr Trostyanko")
-                .email("atrostyanko+aqa21@gmail.com")
+                .name("Alex Trostyanko")
+                .email("atrostyanko@gmail.com")
                 .isActive(true)
                 .roleId(1)
                 .role("Lead")
@@ -114,8 +114,8 @@ public class TestRailApiTest2 extends BaseApiTest {
         Gson gson = new Gson();
 
         User expectedUser = User.builder()
-                .name("Aleksandr Trostyanko")
-                .email("atrostyanko+aqa21@gmail.com")
+                .name("Alex Trostyanko")
+                .email("atrostyanko@gmail.com")
                 .isActive(true)
                 .roleId(1)
                 .role("Lead")

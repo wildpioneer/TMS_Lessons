@@ -3,6 +3,8 @@ package adapters;
 import io.restassured.mapper.ObjectMapperType;
 import io.restassured.response.Response;
 import models.ProjectBuilder;
+import models.Projects;
+import models.User;
 import org.apache.http.HttpStatus;
 import utils.Endpoints;
 
@@ -22,7 +24,7 @@ public class ProjectAdapter extends BaseAdapter {
                 .extract().as(ProjectBuilder.class, ObjectMapperType.GSON);
     }
 
-    public ProjectBuilder[] getAllProjects() {
+    public Projects getAllProjects() {
         Response response = given()
                 .get(Endpoints.GET_ALL_PROJECTS);
 
@@ -31,6 +33,7 @@ public class ProjectAdapter extends BaseAdapter {
 
         System.out.println(projects);
 
-        return gson.fromJson(response.getBody().jsonPath().get("projects").toString(), ProjectBuilder[].class);
+        //return gson.fromJson(response.getBody().jsonPath().get("projects").toString(), ProjectBuilder[].class);
+        return gson.fromJson(response.getBody().asString(), Projects.class);
     }
 }

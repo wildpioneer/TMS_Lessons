@@ -1,0 +1,14 @@
+{
+  "id": {"type": "number"},
+  "email": {"type": "string", "format": "email"},
+  "email_notifications": {"type": "boolean"},
+  "is_active": {"type": "boolean"},
+  "is_admin": {"type": "boolean"},
+  "name": {"type": "string"},
+  "role_id": {"type": "number"},
+  "role": {"type": "string"},
+  "group_ids": [{"type": "number"}, {"type": "number"}, {"type": "number"}],
+  "mfa_required": {"type": "boolean"},
+  "sso_enabled": {"type": "boolean"},
+  "assigned_projects": [{"type": "number"}, {"type": "number"}]
+}

@@ -21,6 +21,6 @@ public class ProjectApiTest extends BaseApiTest {
 
     @Test
     public void getAllProjectsTest() {
-        Assert.assertEquals(projectAdapter.getAllProjects().length, 10);
+        Assert.assertEquals(projectAdapter.getAllProjects().getProjects().length, 40);
     }
 }
