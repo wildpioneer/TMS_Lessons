@@ -1,6 +1,7 @@
 package tests;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -38,6 +39,7 @@ public class SmokeTest {
     @Test
     public void validateSKF() throws InterruptedException {
         driver.get("http://13gp.by/informatsiya/meditsinskie-kalkulyatory/995-raschet-skorosti-klubochkovoj-filtratsii-skf");
+        driver.get("https://bymed.top/calc/%D1%81%D0%BA%D1%84-2148");
 
 
         WebElement selectWebElement = driver.findElement(By.id("oSex"));
