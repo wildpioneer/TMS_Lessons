@@ -18,7 +18,7 @@ public class BrowsersService {
             case "chrome":
                 DriverManagerType driverManagerType = DriverManagerType.CHROME;
                 //WebDriverManager.getInstance(driverManagerType).setup();
-                WebDriverManager.chromedriver().driverVersion("114.0.5735.90").setup();
+                WebDriverManager.chromedriver().setup();
 
                 ChromeOptions chromeOptions = new ChromeOptions();
                 //chromeOptions.setHeadless(ReadProperties.isHeadless());
