@@ -14,6 +14,12 @@ public class RadioButton {
 
     // Продумать механизм поиска этого элемента
     // поиск по name
+
+    /**
+     * Поиск элемента производится по name атрибуту
+     * @param driver
+     * @param by
+     */
     public RadioButton(WebDriver driver, By by) {
         uiElementList = new ArrayList<>();
         valueList = new ArrayList<>();
