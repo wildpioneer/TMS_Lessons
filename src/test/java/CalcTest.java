@@ -47,5 +47,4 @@ public class CalcTest extends BaseTest {
         List list = null;
         int size = list.size();
     }
-
 }
