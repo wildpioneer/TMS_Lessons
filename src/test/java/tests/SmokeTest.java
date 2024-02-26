@@ -38,17 +38,21 @@ public class SmokeTest {
 
     @Test
     public void validateSKF() throws InterruptedException {
-        driver.get("http://13gp.by/informatsiya/meditsinskie-kalkulyatory/995-raschet-skorosti-klubochkovoj-filtratsii-skf");
         driver.get("https://bymed.top/calc/%D1%81%D0%BA%D1%84-2148");
+        Thread.sleep(2000);
 
+        driver.switchTo().frame(1);
 
-        WebElement selectWebElement = driver.findElement(By.id("oSex"));
+        WebElement selectWebElement = driver.findElement(By.id("cr-size"));
         Select selectSex = new Select(selectWebElement);
+
         selectSex.selectByIndex(1);
         Thread.sleep(2000);
-        selectSex.selectByValue("0");
+
+        selectSex.selectByValue("mm");
         Thread.sleep(2000);
-        selectSex.selectByVisibleText("женский");
+
+        selectSex.selectByVisibleText("мг/дл");
         Thread.sleep(2000);
     }
 

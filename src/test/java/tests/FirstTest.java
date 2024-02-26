@@ -12,6 +12,9 @@ public class FirstTest {
     public void simpleDriverTest() {
         SimpleDriver simpleDriver = new SimpleDriver();
         WebDriver driver = simpleDriver.getDriver();
+
+        driver.get("http://onliner.by");
+
         driver.quit();
     }
 
@@ -19,6 +22,9 @@ public class FirstTest {
     public void advancedDriverTest() {
         AdvancedDriver simpleDriver = new AdvancedDriver();
         WebDriver driver = simpleDriver.getDriver();
+
+        driver.get("http://onliner.by");
+
         driver.quit();
     }
 
@@ -26,6 +32,9 @@ public class FirstTest {
     public void browsersServiceTest() {
         BrowsersService browsersService = new BrowsersService();
         WebDriver driver = browsersService.getDriver();
+
+        driver.get("http://onliner.by");
+
         driver.quit();
     }
 }
