@@ -1,6 +1,5 @@
 package tests;
 
-import configuration.ReadProperties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -28,21 +27,27 @@ public class CssSelectorTest {
 
         // Поиск по id
         Assert.assertTrue(driver.findElement(By.cssSelector("#my-Address")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.id("my-Address")).isDisplayed());               // Аналог
 
         // Поиск по class name
         Assert.assertTrue(driver.findElement(By.cssSelector(".newsletter")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.className("newsletter")).isDisplayed());        // Аналог
 
         // Поиск по нескольким значения в аттрибуте class
         Assert.assertTrue(driver.findElement(By.cssSelector(".noSel.newsletter")).isDisplayed());
 
         // Поиск по tag name
         Assert.assertTrue(driver.findElement(By.cssSelector("h1")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.tagName("h1")).isDisplayed());                  // Аналог
 
         // Поиск по tag и значению из аттрибута class
         Assert.assertTrue(driver.findElement(By.cssSelector("div.intro")).isDisplayed());
 
-        // Поиск по tag и значению из аттрибута class
+        // Использование 2х уровневой иерархии для поиска дочернего элемента
         Assert.assertEquals(2, driver.findElements(By.cssSelector("#Lastname .markup")).size());
+
+        // Использование 3х уровневой иерархии для поиска дочернего элемента
+        Assert.assertEquals(2, driver.findElements(By.cssSelector("body .table .content-inner")).size());
 
         // Поиск всех элементов с тэгом h1 или p
         Assert.assertEquals(8, driver.findElements(By.cssSelector("h1, p")).size());
