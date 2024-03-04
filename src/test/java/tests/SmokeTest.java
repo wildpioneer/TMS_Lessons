@@ -54,6 +54,8 @@ public class SmokeTest {
 
         selectSex.selectByVisibleText("мг/дл");
         Thread.sleep(2000);
+
+        System.out.println(driver.findElement(By.id("result")).getText().trim());
     }
 
 
