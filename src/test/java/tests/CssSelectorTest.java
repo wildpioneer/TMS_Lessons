@@ -33,7 +33,7 @@ public class CssSelectorTest {
         Assert.assertTrue(driver.findElement(By.cssSelector(".newsletter")).isDisplayed());
         Assert.assertTrue(driver.findElement(By.className("newsletter")).isDisplayed());        // Аналог
 
-        // Поиск по нескольким значения в аттрибуте class
+        // Поиск по нескольким значениям в аттрибуте class
         Assert.assertTrue(driver.findElement(By.cssSelector(".noSel.newsletter")).isDisplayed());
 
         // Поиск по tag name

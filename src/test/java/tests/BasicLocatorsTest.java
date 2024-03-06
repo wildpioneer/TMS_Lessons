@@ -28,7 +28,7 @@ public class BasicLocatorsTest {
         // Find webElement by ID
         driver.findElement(By.id("name")).sendKeys(ReadProperties.username());
 
-        // Find webElement by Name
+            // Find webElement by Name
         driver.findElement(By.name("password")).sendKeys(ReadProperties.password());
 
         // Find webElement by TagName

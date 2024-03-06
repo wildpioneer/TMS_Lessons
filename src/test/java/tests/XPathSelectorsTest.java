@@ -131,7 +131,7 @@ public class XPathSelectorsTest {
         // Использование child - все дочерние элементы с тэго a от div
         Assert.assertTrue(driver.findElement(By.xpath("//div/child::a")).isDisplayed());
 
-        // Использование child - все дочерние элементы с тэго a от div
+        // Использование descendant - все дочерние элементы с тэго a от div
         Assert.assertTrue(driver.findElement(By.xpath("//div/descendant::a")).isDisplayed());
 
         //Использование following - Выбирает всё в документе после закрытия тэга текущего узла
