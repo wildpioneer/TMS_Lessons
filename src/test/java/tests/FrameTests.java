@@ -18,6 +18,5 @@ public class FrameTests extends BaseTest {
 
         driver.switchTo().parentFrame();
         Assert.assertTrue(driver.findElement(By.className("tox-editor-container")).isDisplayed());
-
     }
 }
