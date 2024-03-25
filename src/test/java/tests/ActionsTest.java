@@ -8,6 +8,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import services.WaitsService;
 
+import java.io.File;
+import java.net.URL;
 import java.time.Duration;
 import java.util.List;
 
@@ -37,11 +39,31 @@ public class ActionsTest extends BaseTest {
         WaitsService wait = new WaitsService(driver, Duration.ofSeconds(10));
 
         WebElement fileUploadPath = wait.waitForExists(By.id("file-upload"));
-        String pathToFile = ActionsTest.class.getClassLoader().getResource("download.jpeg").getPath();
+        String pathToFile = getAbsolutePath("download.jpeg");
         System.out.println(pathToFile);
         fileUploadPath.sendKeys(pathToFile);
         wait.waitForExists(By.id("file-submit")).submit();
 
         Thread.sleep(5000);
+    }
+
+    private String getAbsolutePath(String filename) {
+        String filePath = null;
+
+        // Получение классового загрузчика
+        ClassLoader classLoader = BaseTest.class.getClassLoader();
+
+        // Получение URL ресурса
+        URL resourceURL = classLoader.getResource(filename);
+
+        if (resourceURL != null) {
+            // Получение пути к файлу
+            filePath = new File(resourceURL.getFile()).getAbsolutePath();
+            System.out.println("Полный путь к файлу: " + filePath);
+        } else {
+            System.out.println("Ресурс не найден");
+        }
+
+        return filePath;
     }
 }
