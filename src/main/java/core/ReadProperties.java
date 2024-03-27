@@ -35,7 +35,11 @@ public class ReadProperties {
         return properties.getProperty("headless").equalsIgnoreCase("true");
     }
 
-    public static int timeout()  {
+    public static int timeout() {
         return Integer.parseInt(properties.getProperty("timeout"));
+    }
+
+    public static int pageLoadTimeout() {
+        return Integer.parseInt(properties.getProperty("pageLoadTimeout"));
     }
 }

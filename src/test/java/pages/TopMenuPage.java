@@ -23,10 +23,6 @@ public class TopMenuPage extends BasePage {
         return "";
     }
 
-    @Override
-    public void openPageByUrl() {
-    }
-
     // Блок атомарных методов
     public WebElement getTopPanel() {
         return driver.findElement(topPanelLocator);
