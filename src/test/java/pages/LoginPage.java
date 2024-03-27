@@ -6,37 +6,78 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class LoginPage extends BasePage {
-    private static String ENDPOINT = "/auth/login";
+    private final static String pagePath = "";
 
-    private static final By PAGE_OPENED_IDENTIFIER = By.id("button_primary");
+    // Блок описания локаторов для элементов
+    private static final By emailInputLocator = By.id("name");
+    private final By passwordInputLocator = By.id("password");
+    private final By loginButtonLocator = By.id("button_primary");
+    private final By errorTextLabelLocator = By.className("error-text");
 
-    protected By emailSelector = By.id("name");
-    protected By passwordSelector = By.id("password");
-    protected By loginSelector = By.id("button_primary");
-
+    // Блок иницализации
     public LoginPage(WebDriver driver) {
         super(driver);
     }
 
     @Override
-    protected void openPage() {
-        driver.get(BASE_URL + ENDPOINT);
+    protected By getPageIdentifier() {
+        return emailInputLocator;
     }
 
     @Override
-    protected boolean isPageOpened() {
-        return waits.waitForVisibility(PAGE_OPENED_IDENTIFIER).isDisplayed();
+    protected String getPagePath() {
+        return pagePath;
     }
 
-    public WebElement getEmailField() {
-        return driver.findElement(emailSelector);
+    // Блок атомарных методов
+    public WebElement getEmailInput() {
+        return waitsService.waitForVisibilityLocatedBy(emailInputLocator);
     }
 
-    public WebElement getPasswordField() {
-        return driver.findElement(passwordSelector);
+    public LoginPage setEmail(String value) {
+        getEmailInput().sendKeys(value);
+        return this;
+    }
+
+    public WebElement getPasswordInput() {
+        return waitsService.waitForVisibilityLocatedBy(passwordInputLocator);
+    }
+
+    public LoginPage setPassword(String value) {
+        getPasswordInput().sendKeys(value);
+        return this;
     }
 
     public WebElement getLoginButton() {
-        return driver.findElement(loginSelector);
+        return waitsService.waitForVisibilityLocatedBy(loginButtonLocator);
+    }
+
+    public WebElement getErrorTextLabel() {
+        return waitsService.waitForVisibilityLocatedBy(errorTextLabelLocator);
+    }
+
+    public void clickLoginButton() {
+        getLoginButton().click();
+    }
+
+    public String getErrorText() {
+        return getErrorTextLabel().getText();
+    }
+
+    private void login(String username, String password) {
+        this
+                .setEmail(username)
+                .setPassword(password)
+                .clickLoginButton();
+    }
+
+    public DashboardPage successfulLogin(String username, String password) {
+        login(username, password);
+        return new DashboardPage(driver);
+    }
+
+    public LoginPage incorrectLogin(String username, String password) {
+        login(username, password);
+        return this;
     }
 }

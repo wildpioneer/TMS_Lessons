@@ -1,20 +1,16 @@
 package baseEntity;
 
-
 import core.ReadProperties;
-import org.jsoup.Connection;
+import core.WaitsService;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
-import utils.Waits;
-
-import java.util.NoSuchElementException;
 
 public abstract class BasePage {
-    protected static final int WAIT_FOR_PAGE_LOADED_IN_SECONDS = 30;
+    protected static final int WAIT_FOR_PAGE_LOADED_IN_SECONDS = 60;
 
     protected WebDriver driver;
-    protected String BASE_URL;
-    protected Waits waits;
+    protected WaitsService waitsService;
 
     public BasePage(WebDriver driver) {
         this(driver, false);
@@ -22,31 +18,42 @@ public abstract class BasePage {
 
     public BasePage(WebDriver driver, boolean openPageByUrl) {
         this.driver = driver;
-        this.waits = new Waits(driver);
-        this.BASE_URL = ReadProperties.getUrl();
+        this.waitsService = new WaitsService(driver);
 
         if (openPageByUrl) {
-            openPage();
+            openPageByUrl();
         }
 
         waitForOpen();
     }
 
-    protected abstract void openPage();
-    protected abstract boolean isPageOpened();
+    protected abstract By getPageIdentifier();
+    protected abstract String getPagePath();
 
-    protected void waitForOpen() {
+    public boolean isPageOpened() {
+        try {
+            return waitsService.waitForVisibilityLocatedBy(getPageIdentifier()).isDisplayed();
+        } catch (TimeoutException ex) {
+            return false;
+        }
+    }
+
+    public void openPageByUrl() {
+        driver.get(ReadProperties.getUrl() + getPagePath());
+    }
+
+    private void waitForOpen() {
         int tryCount = 0;
         boolean isPageOpenedIndicator = isPageOpened();
 
         while (!isPageOpenedIndicator
-                && tryCount < (WAIT_FOR_PAGE_LOADED_IN_SECONDS/ReadProperties.getTimeOut())) {
+                && (tryCount < WAIT_FOR_PAGE_LOADED_IN_SECONDS / ReadProperties.timeout())) {
             tryCount++;
             isPageOpenedIndicator = isPageOpened();
         }
 
         if (!isPageOpenedIndicator) {
-            throw new AssertionError("Page was not opened");
+            throw new AssertionError("Page is not opened.");
         }
     }
 }
