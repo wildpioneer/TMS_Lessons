@@ -10,13 +10,29 @@
     <name>TMS_Lessons</name>
 
     <properties>
-        <my.property>sdfsdf</my.property>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <aspectj.version>1.9.6</aspectj.version>
-        <allure.version>2.13.7</allure.version>
-        <selenium.java>3.141.59</selenium.java>
+        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <selenium.java>4.19.1</selenium.java>
+        <webdrivermanager.version>5.8.0</webdrivermanager.version>
+        <testng.version>7.10.1</testng.version>
+        <aspectj.version>1.9.20.1</aspectj.version>
+        <allure.version>2.24.0</allure.version>
+        <logger.version>2.0.13</logger.version>
+        <lombok.version>1.18.32</lombok.version>
+        <rest-assured.version>5.4.0</rest-assured.version>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-bom</artifactId>
+                <version>${allure.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <dependency>
@@ -27,32 +43,32 @@
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>4.2.0</version>
+            <version>${webdrivermanager.version}</version>
         </dependency>
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>7.1.0</version>
+            <version>${testng.version}</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
-            <version>1.7.35</version>
+            <version>${logger.version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.10</version>
+            <version>${lombok.version}</version>
         </dependency>
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
-            <version>4.3.1</version>
+            <version>${rest-assured.version}</version>
         </dependency>
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
-            <version>2.17.2</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -63,7 +79,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.22.2</version>
+                <version>3.1.2</version>
                 <configuration>
                     <testFailureIgnore>true</testFailureIgnore>
                     <forkCount>2</forkCount>
@@ -87,13 +103,13 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.0</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>17</source>
+                    <target>17</target>
                     <annotationProcessorPaths>
                         <path>
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
-                            <version>1.18.22</version>
+                            <version>${lombok.version}</version>
                         </path>
                     </annotationProcessorPaths>
                 </configuration>
