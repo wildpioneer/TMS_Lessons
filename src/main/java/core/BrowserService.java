@@ -51,8 +51,9 @@ public class BrowserService {
         chromeOptions.addArguments("--ignore-certificate-errors");
         chromeOptions.addArguments("--silent");
         chromeOptions.addArguments("--start-maximized");
+        chromeOptions.addArguments("--remote-debugging-pipe");
         //chromeOptions.addArguments("--incognito");
-        //chromeOptions.addArguments("--headless");
+        chromeOptions.addArguments("--headless");
 
         return chromeOptions;
     }
