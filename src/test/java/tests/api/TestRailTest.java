@@ -18,7 +18,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 
-public class TestRailApiTest2 extends BaseApiTest {
+public class TestRailTest extends BaseApiTest {
 
     @Test
     public void getAllUsers() {

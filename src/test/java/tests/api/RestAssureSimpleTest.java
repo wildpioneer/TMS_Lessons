@@ -10,10 +10,10 @@ import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class reqresApiTest {
+public class RestAssureSimpleTest {
 
     @Test
-    public void simpleStepByStepApiTest() {
+    public void simpleStepByStepGetApiTest() {
         // Setup RestAssured
         RestAssured.baseURI = "https://reqres.in";
 
@@ -39,7 +39,7 @@ public class reqresApiTest {
     }
 
     @Test
-    public void simpleShortApiTest() {
+    public void simpleShortGetApiTest() {
         // Setup RestAssured
         RestAssured.baseURI = "https://reqres.in";
 

@@ -10,10 +10,15 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-public class httpClientTest {
+public class HttpClientTest {
+
+    /**
+     * Данный класс предоставляет пример отрпавки простейшего запроса
+     * на сайт reqres.in с использованием HttpClient-а
+     */
 
     @Test
-    public void simpleApiTest() throws IOException {
+    public void simpleGetApiTest() throws IOException {
         String restURL = "https://reqres.in";
 
         // Create Object and pass the url

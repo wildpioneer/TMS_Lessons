@@ -14,10 +14,10 @@ import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class TestRailApiTest extends BaseApiTest {
+public class SimpleTestRailTest extends BaseApiTest {
 
     @Test
-    public void getAllUsers() {
+    public void getAllUsersStepByStepTest() {
         // Setup RestAssured
         RestAssured.baseURI = ReadProperties.getUrl();
 
@@ -26,8 +26,14 @@ public class TestRailApiTest extends BaseApiTest {
 
         // Setup request Object
         RequestSpecification httpRequest = given();
+
+        // Add header parameters
         httpRequest.header(HTTP.CONTENT_TYPE, ContentType.JSON);
-        httpRequest.auth().preemptive().basic(ReadProperties.getUsername(), ReadProperties.getPassword());
+
+        // Add auth
+        httpRequest.auth().preemptive().basic(
+                ReadProperties.getUsername(), ReadProperties.getPassword()
+        );
 
         // Setup Response Object
         Response response = httpRequest.request(Method.GET, endpoint);
@@ -35,6 +41,8 @@ public class TestRailApiTest extends BaseApiTest {
         // Get Response Status
         int statusCode = response.getStatusCode();
         System.out.println("Status Code: " + statusCode);
+
+        // Verification status code
         Assert.assertEquals(statusCode, 200);
         Assert.assertEquals(statusCode, HttpStatus.SC_OK);
 
@@ -44,7 +52,7 @@ public class TestRailApiTest extends BaseApiTest {
     }
 
     @Test
-    public void getAllUsers1() {
+    public void getAllUsersShortTest() {
         // Setup endpoint
         String endpoint = "/index.php?/api/v2/get_users";
 

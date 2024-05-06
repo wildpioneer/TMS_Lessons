@@ -6,7 +6,7 @@ import models.ProjectBuilder;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class ProjectApiTest extends BaseApiTest {
+public class ProjectTest extends BaseApiTest {
 
     @Test
     public void addProjectTest() {

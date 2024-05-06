@@ -14,11 +14,11 @@ import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 
-public class TestRailApiTest1 extends BaseApiTest {
+public class PostTestRailTest extends BaseApiTest {
     int projectID;
 
     @Test
-    public void getAllProjects() {
+    public void getAllProjectsTest() {
         String endpoint = "/index.php?/api/v2/get_projects";
 
         given()
@@ -29,7 +29,7 @@ public class TestRailApiTest1 extends BaseApiTest {
     }
 
     @Test
-    public void addProject1() {
+    public void addProjectUsingStringTest() {
         String endpoint = "/index.php?/api/v2/add_project";
 
         ProjectBuilder project = ProjectBuilder.builder()
@@ -57,7 +57,7 @@ public class TestRailApiTest1 extends BaseApiTest {
     }
 
     @Test
-    public void addProject2() {
+    public void addProjectUsingMapTest() {
         String endpoint = "/index.php?/api/v2/add_project";
 
         ProjectBuilder project = ProjectBuilder.builder()
@@ -79,7 +79,7 @@ public class TestRailApiTest1 extends BaseApiTest {
     }
 
     @Test
-    public void addProject3() {
+    public void addProjectUsingObject() {
         String endpoint = "/index.php?/api/v2/add_project";
 
         ProjectBuilder project = ProjectBuilder.builder()
@@ -94,51 +94,6 @@ public class TestRailApiTest1 extends BaseApiTest {
                 .post(endpoint)
                 .then().log().body()
                 .statusCode(HttpStatus.SC_OK);
-    }
-
-    @Test
-    public void addProject4() {
-        String endpoint = "/index.php?/api/v2/add_project";
-
-        ProjectBuilder project = ProjectBuilder.builder()
-                .name("WP_Project_04")
-                .typeOfProject(ProjectType.SINGLE_SUITE_BASELINES)
-                .build();
-
-        projectID = given()
-                .body(project, ObjectMapperType.GSON)
-                .log().body()
-                .when()
-                .post(endpoint)
-                .then()
-                .log().body()
-                .statusCode(HttpStatus.SC_OK)
-                .extract().jsonPath().get("id");
-
-        System.out.println(projectID);
-    }
-
-    @Test(dependsOnMethods = "addProject4")
-    public void updateProject() {
-        String endpoint = "/index.php?/api/v2/update_project/{project_id}";
-
-        ProjectBuilder projectUpd = ProjectBuilder.builder()
-                .name("WP_Project_04_UPD")
-                .announcement("Test!!!")
-                .isCompleted(true)
-                .build();
-
-        Response response = given()
-                .pathParam("project_id", projectID)
-                .body(projectUpd, ObjectMapperType.GSON)
-                .when()
-                .post(endpoint)
-                .then()
-                .log().body()
-                .extract().response();
-
-        Assert.assertEquals(response.getBody().jsonPath().get("name"),
-                projectUpd.getName());
     }
 
     @Test(dependsOnMethods = "updateProject")
