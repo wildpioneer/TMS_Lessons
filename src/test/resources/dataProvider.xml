@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.1.dtd">
+<suite name="Suite1" verbose="1"
+       data-provider-thread-count="3"
+       share-thread-pool-for-data-providers="true"> <!-- Всего 3 потока -->
+       <!--share-thread-pool-for-data-providers="false"--> <!-- Все 6 потоков -->
+
+    <test name="Test1" parallel="methods">
+        <classes>
+            <class name="DataProviderTest"/>
+        </classes>
+    </test>
+
+</suite>
