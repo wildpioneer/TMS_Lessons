@@ -22,6 +22,7 @@ public class BrowsersService {
                 //chromeOptions.addArguments("--window-size=1920,1200");
                 chromeOptions.addArguments("--ignore-certificate-errors");
                 chromeOptions.addArguments("--silent");
+                chromeOptions.addArguments("--private");
                 chromeOptions.addArguments("--start-maximized");
                 //chromeOptions.addArguments("--headless");
 
